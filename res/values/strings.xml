@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidOAuthExample</string>
+    <string name="failed_to_authorize">認証できませんでした. 再度お試しください.</string>
+    <string name="login_activity_title">mixiにログイン</string>
+    <string name="login">ログイン</string>
+    <string name="logout">ログアウト</string>
+    <string name="list_empty">Sample Application</string>
+    <string name="auth_error_login_failed">ログインできませんでした。</string>
+    <string name="need_relogin">再ログインが必要です。</string>
+    <string name="remaining_list_count">残り%d件</string>
+    <string name="error_while_retrieving_data">取得中にエラーが発生しました(%s)</string>
+    <string name="retrieving_friend_list">一覧を取得中です</string>
+    <string name="auth_progress_title">ログイン</string>
+    <string name="auth_progress_message">データを取得しています</string>
+    <string name="footer_view_loading_text">取得中...</string>
+    <string name="footer_view_load_next_text">続きを取得</string>
+    <string name="footer_view_load_next_description">ここをタップすると続きを取得します</string>
+</resources>
