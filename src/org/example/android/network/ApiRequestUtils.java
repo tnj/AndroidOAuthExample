@@ -164,12 +164,14 @@ public class ApiRequestUtils {
         OAuthToken token = null;
         Header authorizationHeader = null;
         if (store != null) {
-        	token = getValidAccessToken(store);
-        	if (token != null) {
+            // token を取得
+            token = getValidAccessToken(store);
+            if (token != null) {
+                // Authorization ヘッダを付与
                 authorizationHeader = 
-                	new BasicHeader("Authorization", "OAuth " + token.accessToken);
+                    new BasicHeader("Authorization", "OAuth " + token.accessToken);
                 request.addHeader(authorizationHeader);
-        	}
+            }
         }
         try {
             return executeRequest(request, responseHandler);

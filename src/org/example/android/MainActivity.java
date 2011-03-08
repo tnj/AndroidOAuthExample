@@ -195,20 +195,23 @@ public class MainActivity extends ListActivity
      *         false.
      */
     private boolean parseIntent(Intent intent) {
+        // Intent の action を確認
         String action = intent.getAction();
         if (action == null || !action.equals(Intent.ACTION_VIEW)){
             return false;
         }
+        // Uri を取り出す
         Uri uri = intent.getData();
         if (uri == null) {
             return false;
         }
+        // code パラメータから Authorization Code を取り出す
         String code = uri.getQueryParameter("code");
         if (code == null) {
             showToast(R.string.auth_error_login_failed);
             return false;
         }
-        // start token retriever task
+        // トークンの取得開始
         new TokenRetriever().execute(code);
         return true;
     }

@@ -89,20 +89,26 @@ public class PeopleApiClient {
             PeopleApiResponse res = new PeopleApiResponse();
             ArrayList<MixiPerson> people = new ArrayList<MixiPerson>();
             try {
+                // 外側
                 JSONObject json = new JSONObject(string);
                 res.itemsPerPage = json.getInt("itemsPerPage");
                 res.startIndex = json.getInt("startIndex");
                 res.totalResults = json.getInt("totalResults");
+                
+                // 内側(結果のリスト)
                 JSONArray entries = json.getJSONArray("entry");
                 int count = entries.length();
                 for (int i = 0; i < count; i++) {
                     JSONObject entry = entries.getJSONObject(i);
+                    
                     MixiPerson person = new MixiPerson();
                     person.displayName = entry.getString("displayName");
                     person.profileUrl  = entry.getString("profileUrl");
+                    
                     people.add(person);
                 }
                 res.entry = people;
+
                 return res;
             } catch (JSONException e) {
                 Log.w(TAG, "something went wrong while parsing json", e);

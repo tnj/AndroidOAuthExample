@@ -35,18 +35,23 @@ public class OAuthClient {
     /** TODO 必要な scope に書き換える */
     private static final String[] SCOPE = { "r_profile" };
 
-    /** TODO consumer secret はそのまま書かずに難読化する処理を入れる */
+    /** 
+     * 本サンプルでは Consumer Key/Secret は平文で記述していますが、
+     * これらの文字列は、ビルドしたパッケージからも簡単に抜き出すことができてしまい、
+     * 第三者に、アプリケーションを偽装される可能性があります。
+     * アプリケーションをリリースされる際には、独自の難読化を実装されることをお勧めします。
+     */
     private static class EncodedConsumerKey {
-        /** TODO set your consumer key */
-        private static final String ENCRYPTED_CONSUMER_KEY = "";
-        /** TODO set your consumer secret */
-        private static final String ENCRYPTED_CONSUMER_SECRET = "";
+        /** TODO: 取得した Consumer Key に書き換える */
+        private static final String ENCODED_CONSUMER_KEY = "";
+        /** TODO: 取得した Consumer Secret に書き換える */
+        private static final String ENCIDED_CONSUMER_SECRET = "";
         
         public static String getClientId() {
-            return decode(ENCRYPTED_CONSUMER_KEY);
+            return decode(ENCODED_CONSUMER_KEY);
         }
         public static String getClientSecret() {
-            return decode(ENCRYPTED_CONSUMER_SECRET);
+            return decode(ENCIDED_CONSUMER_SECRET);
         }
         private static String decode(final String encrypted) {
             // TODO ここに難読化された consumer secret のデコード処理を実装
