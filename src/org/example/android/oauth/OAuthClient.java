@@ -45,13 +45,13 @@ public class OAuthClient {
         /** TODO: 取得した Consumer Key に書き換える */
         private static final String ENCODED_CONSUMER_KEY = "";
         /** TODO: 取得した Consumer Secret に書き換える */
-        private static final String ENCIDED_CONSUMER_SECRET = "";
+        private static final String ENCODED_CONSUMER_SECRET = "";
         
         public static String getClientId() {
             return decode(ENCODED_CONSUMER_KEY);
         }
         public static String getClientSecret() {
-            return decode(ENCIDED_CONSUMER_SECRET);
+            return decode(ENCODED_CONSUMER_SECRET);
         }
         private static String decode(final String encrypted) {
             // TODO ここに難読化された consumer secret のデコード処理を実装
